@@ -1,0 +1,4 @@
+<span class='container'  *ngFor='let pokemon of pokemons.results' (click)=onSelect(pokemon.name)>
+  <app-pokemon-details [pokemonUrl]='pokemon.url' [pokemonName]='pokemon.name'></app-pokemon-details>
+    {{pokemon.id}}{{pokemon.name | titlecase }} </span>
+    

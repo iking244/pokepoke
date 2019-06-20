@@ -1,0 +1,25 @@
+img{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height:60%;;
+}
+
+#container{
+    display:inline-block;
+    border-radius: 5px;
+    padding: 2px 8px;
+    width:30%;
+    margin: 5px;
+}
+
+.default{
+    display:block;
+    margin-left: auto;  
+    margin-right: auto;
+    width:60%;
+    height:180px;
+  
+}
+

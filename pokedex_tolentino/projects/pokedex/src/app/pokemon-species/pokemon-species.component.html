@@ -1,0 +1,31 @@
+<h3> {{pokemonName | titlecase}}
+</h3>
+
+<ng-container *ngIf='pokemonSprite'>
+  <ng-container *ngIf='pokemonSprite.front_default; else elseBlock'>
+    <img [src] = pokemonSprite.front_default>
+  </ng-container>
+  
+  <ng-template #elseBlock>
+      <img class='default' 
+      src="assets/img/Pokeball.png"/>
+  </ng-template>
+  
+</ng-container>
+<p>Types:</p>
+<ng-container  *ngFor="let types of pokemonDetails">
+  <div  id= 'container' class="{{types.type.name}}">{{types.type.name | uppercase}}</div>
+</ng-container>
+
+<ng-container *ngIf ='pokemonInfo'>
+<div>Height : {{pokemonInfo.height}} m</div>
+
+<div>Weight : {{pokemonInfo.weight}} lbs</div>
+   
+   
+<div *ngFor='let p of pokemonInfo.abilities'>
+  <ng-container *ngIf='p.is_hidden == false'>
+    Skill: {{p.ability.name | titlecase}}
+  </ng-container>
+</div>
+</ng-container>
