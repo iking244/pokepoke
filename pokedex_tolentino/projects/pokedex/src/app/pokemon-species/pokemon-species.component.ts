@@ -4,6 +4,7 @@ import { PokemonService } from '../pokemon.service';
 import { SpriteUrls, PokemonDetails, PokemonTypes} from '../_models/pokemon';
 
 
+
 @Component({
   selector: 'app-pokemon-species',
   templateUrl: './pokemon-species.component.html',
@@ -15,6 +16,7 @@ export class PokemonSpeciesComponent implements OnInit {
   pokemonInfo: PokemonDetails;
   pokemonDetails: PokemonTypes[];
   subscription;
+  public errorMsg;
 
   constructor( private route: ActivatedRoute, private pokemonService: PokemonService) { }
 
@@ -24,10 +26,13 @@ export class PokemonSpeciesComponent implements OnInit {
 
     this.subscription = this.pokemonService.getPokemonInfo(this.pokemonName)
     .subscribe(data => {
+      console.log(data);
       this.pokemonSprite = data.sprites;
       this.pokemonInfo = data;
       this.pokemonDetails = data.types;
-    });
+    },
+    error => this.errorMsg = error
+    );
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();

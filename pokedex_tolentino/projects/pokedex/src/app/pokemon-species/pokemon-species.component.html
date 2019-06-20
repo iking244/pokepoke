@@ -1,18 +1,19 @@
-<h3> {{pokemonName | titlecase}}
-</h3>
 
-<ng-container *ngIf='pokemonSprite'>
+
+<ng-container *ngIf='pokemonSprite; else notFound'>
+    <h3> {{pokemonName | titlecase}}
+      </h3>
   <ng-container *ngIf='pokemonSprite.front_default; else elseBlock'>
     <img [src] = pokemonSprite.front_default>
+    <p>Types:</p>
   </ng-container>
   
   <ng-template #elseBlock>
       <img class='default' 
       src="assets/img/Pokeball.png"/>
   </ng-template>
-  
 </ng-container>
-<p>Types:</p>
+
 <ng-container  *ngFor="let types of pokemonDetails">
   <div  id= 'container' class="{{types.type.name}}">{{types.type.name | uppercase}}</div>
 </ng-container>
@@ -29,3 +30,7 @@
   </ng-container>
 </div>
 </ng-container>
+
+<ng-template #notFound>
+    {{errorMsg}}
+</ng-template>
