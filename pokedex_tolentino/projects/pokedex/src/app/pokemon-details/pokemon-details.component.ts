@@ -15,17 +15,25 @@ export class PokemonSpritesComponent implements OnInit {
 pokemonSprites: SpriteUrls;
 pokemonDetails: PokemonTypes[];
 pokemonId: PokemonDetails;
-
+subscription;
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
-    this.pokemonService.getPokemonInfo(this.pokemonName)
+    this.subscription =this.pokemonService.getPokemonInfo(this.pokemonName)
     .subscribe(data => {
       this.pokemonSprites = data.sprites;
       this.pokemonDetails = data.types;
       this.pokemonId = data;
 
     });
+
   }
 
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
+
+
 }
+
+

@@ -8,6 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PokemonSpritesComponent } from './pokemon-details/pokemon-details.component';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
+import { PokemonListByTypeComponent } from './pokemon-list-by-type/pokemon-list-by-type.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     TestComponent,
     PokemonSpritesComponent,
     routingComponents,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoadingSpinnerComponent,
+    PokemonListByTypeComponent
   
     
   ],
@@ -23,6 +28,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxPaginationModule
+   
 
   ],
   providers: [],

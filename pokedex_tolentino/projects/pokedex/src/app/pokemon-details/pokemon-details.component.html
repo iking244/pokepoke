@@ -1,10 +1,8 @@
+<app-loading-spinner *ngIf="!pokemonSprites"></app-loading-spinner>
 <div *ngIf='pokemonSprites'>
 <div *ngIf= "pokemonSprites.front_default; else elseBlock">
   <img [src]='pokemonSprites.front_default'/>
-  <ng-container *ngFor='let t of pokemonDetails'>
-      <div id='container' class="{{t.type.name}}">{{t.type.name | titlecase}}</div>
-    </ng-container>
-   <br><span>ID# {{pokemonId.id  | number: '3.0-0'}}</span> 
+   <br><span style="cursor: text;">ID# {{pokemonId.id  | number: '3.0-0'}}</span> 
 </div>
 <ng-template #elseBlock>
     <img class='default' 

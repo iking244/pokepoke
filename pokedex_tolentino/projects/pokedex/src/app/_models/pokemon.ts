@@ -56,6 +56,16 @@ export class Stats{
   stat: string;
 }
 
+export class PokemonSpecies{
+base_happiness: string;
+capture_rate: string;
+flavor_text_entries: FlavorText;
+}
+
+export class FlavorText{
+flavor_text: string;
+language: string;
+}
 
 
 

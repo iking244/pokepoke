@@ -1,14 +1,33 @@
-#container{
+*{
+    margin:auto;
+    text-align: center;
+}
+.imageContainer{
+    border: 1px solid black;
+    width:20%;
+    padding:0;
     display:inline-block;
+    text-align:left;
+}
+#container{
+    display:block;
     border-radius: 5px;
     padding: 2px 8px;
     width:10%;
-    margin: 0px 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+  
 }
 img{
     display:block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100px;
-    height:100px;;
 }
+
+ul{ 
+    list-style:none;
+}
+
+.textDiv{
+    font-weight:bold;
+    padding-top:10px;
+}
+

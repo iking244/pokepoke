@@ -1,4 +1,7 @@
-<span class='container'  *ngFor='let pokemon of pokemons.results' (click)=onSelect(pokemon.name)>
+<span class='container' *ngFor='let pokemon of pokemons.results | paginate: {itemsPerPage:40, currentPage:page}'
+(click)=onSelect(pokemon.name) title = '{{pokemon.name | titlecase }} details'>
+<b style="cursor: text;">{{pokemon.name | uppercase }}</b> 
   <app-pokemon-details [pokemonUrl]='pokemon.url' [pokemonName]='pokemon.name'></app-pokemon-details>
-    {{pokemon.id}}{{pokemon.name | titlecase }} </span>
+    {{pokemon.id}}</span>
+ <pagination-controls (pageChange)="page = $event"></pagination-controls>   
     

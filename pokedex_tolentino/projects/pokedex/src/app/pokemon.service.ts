@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class PokemonService {
-private url = 'https://pokeapi.co/api/v2/pokemon?offset=850&limit=100';
+private url = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=964';
 private pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
 private pokemonSpeciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
+private pokemonTypes= 'https://pokeapi.co/api/v2/type/';
   constructor(private http: HttpClient, private router: Router) { }
 
   getPokemon(): Observable<PokemonLink[]> {
@@ -24,7 +25,13 @@ private pokemonSpeciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
   }
 
   getPokemonDesc(name){
-    return this.http.get<any>(this.pokemonSpeciesUrl+ name);
+    return this.http.get<any>(this.pokemonSpeciesUrl+ name).pipe(
+      catchError(this.errorHandler));
+  }
+
+  getPokemonByType(type){
+    return this.http.get<any>(this.pokemonTypes + type).pipe(
+      catchError(this.errorHandler));
   }
 
   errorHandler(error : HttpErrorResponse){

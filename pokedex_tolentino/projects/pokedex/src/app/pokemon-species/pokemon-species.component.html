@@ -1,21 +1,33 @@
 
-
-<ng-container *ngIf='pokemonSprite; else notFound'>
-    <h3> {{pokemonName | titlecase}}
+<app-loading-spinner *ngIf="!pokemonSpecieDetails; else notFound"></app-loading-spinner>
+<ng-container *ngIf="pokemonSpecieDetails">
+<ng-container *ngIf='pokemonSprite'>
+    <h3> {{pokemonInfo.species.name | titlecase}}
       </h3>
-  <ng-container *ngIf='pokemonSprite.front_default; else elseBlock'>
-    <img [src] = pokemonSprite.front_default>
-    <p>Types:</p>
-  </ng-container>
-  
-  <ng-template #elseBlock>
-      <img class='default' 
-      src="assets/img/Pokeball.png"/>
-  </ng-template>
-</ng-container>
-
+   <ng-container *ngIf='pokemonSprite.front_default; else elseBlock'>
+     <img [src] = pokemonSprite.front_default>
+      
+     </ng-container>
+     <ng-container *ngIf="pokemonInfo">
+        <div >Stats:</div>
+        
+        <div *ngFor='let p of pokemonInfo.stats'>
+          {{p.stat.name}}: {{p.base_stat}}
+        </div>
+        <div>Base Happiness: {{pokemonSpecieDetails.base_happiness}}</div>
+        <div>Capture Rate : {{pokemonSpecieDetails.capture_rate}}</div>
+        
+       </ng-container>
+     
+     <ng-template #elseBlock>
+         <img class='default' 
+         src="assets/img/Pokeball.png"/>
+     </ng-template>
+   </ng-container>
+   <p>Types:</p>
 <ng-container  *ngFor="let types of pokemonDetails">
-  <div  id= 'container' class="{{types.type.name}}">{{types.type.name | uppercase}}</div>
+ <div  id= 'container' (click)=onSelect(types.type.name) class="{{types.type.name}}">{{types.type.name | uppercase}}</div>
+  
 </ng-container>
 
 <ng-container *ngIf ='pokemonInfo'>
@@ -23,12 +35,18 @@
 
 <div>Weight : {{pokemonInfo.weight}} lbs</div>
    
-   
 <div *ngFor='let p of pokemonInfo.abilities'>
   <ng-container *ngIf='p.is_hidden == false'>
     Skill: {{p.ability.name | titlecase}}
   </ng-container>
 </div>
+</ng-container>
+
+<div class='description'>
+    <p>Description</p>
+    {{pokemonDescription}}
+</div>
+
 </ng-container>
 
 <ng-template #notFound>
