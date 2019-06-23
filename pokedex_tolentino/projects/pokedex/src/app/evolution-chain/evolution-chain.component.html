@@ -1,0 +1,11 @@
+{{evolution_data.species.name}}
+<app-pokemon-details (click)='onSelect(evolution_data.species.name)' [pokemonName]='evolution_data.species.name'></app-pokemon-details>
+
+<ng-container *ngFor='let FirstEvolve of evolution_data.evolves_to'>
+  {{FirstEvolve.species.name}}
+  <app-pokemon-details (click)='onSelect(FirstEvolve.species.name)' [pokemonName]='FirstEvolve.species.name'></app-pokemon-details>
+<ng-container *ngFor='let SecondEvolve of FirstEvolve.evolves_to'>
+  {{SecondEvolve.species.name}}
+  <app-pokemon-details (click)='onSelect(SecondEvolve.species.name)' [pokemonName]='SecondEvolve.species.name'></app-pokemon-details>
+</ng-container>
+</ng-container>

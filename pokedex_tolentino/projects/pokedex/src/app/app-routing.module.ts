@@ -6,10 +6,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PokemonListByTypeComponent } from './pokemon-list-by-type/pokemon-list-by-type.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/list', pathMatch: 'full' },
-  { path: 'list', component: PokemonListComponent },
-  { path: 'list/:name', component: PokemonSpeciesComponent},
-  { path: 'list/pokemon/:type' , component: PokemonListByTypeComponent },
+  { path: '', redirectTo: '/pokemon-list', pathMatch: 'full' },
+  { path: 'pokemon-list', component: PokemonListComponent },
+  { path: 'pokemon-list/:name', component: PokemonSpeciesComponent},
+  { path: 'pokemon-list/pokemon/:type' , component: PokemonListByTypeComponent },
   { path: "**", component: PageNotFoundComponent},
  
 ];

@@ -1,3 +1,6 @@
+body{
+    margin: 0;
+}
 .fire{
     background: linear-gradient(180deg, #fd7d24 50%, #fd7d24 50%);
     background-color: #fd7d24;

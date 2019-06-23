@@ -2,7 +2,6 @@
 <div *ngIf='pokemonSprites'>
 <div *ngIf= "pokemonSprites.front_default; else elseBlock">
   <img [src]='pokemonSprites.front_default'/>
-   <br><span style="cursor: text;">ID# {{pokemonId.id  | number: '3.0-0'}}</span> 
 </div>
 <ng-template #elseBlock>
     <img class='default' 

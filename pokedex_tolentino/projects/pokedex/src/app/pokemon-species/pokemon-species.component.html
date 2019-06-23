@@ -1,4 +1,4 @@
-
+<app-header></app-header>
 <app-loading-spinner *ngIf="!pokemonSpecieDetails; else notFound"></app-loading-spinner>
 <ng-container *ngIf="pokemonSpecieDetails">
 <ng-container *ngIf='pokemonSprite'>
@@ -46,6 +46,10 @@
     <p>Description</p>
     {{pokemonDescription}}
 </div>
+
+<app-evolution-chain [specieUrl]='pokemonSpecieDetails.evolution_chain.url'></app-evolution-chain>
+
+
 
 </ng-container>
 

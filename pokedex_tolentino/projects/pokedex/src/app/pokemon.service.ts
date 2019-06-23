@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError as observableThrowError, Observable } from 'rxjs';
 import {  PokemonLink, PokemonDetails } from './_models/pokemon';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
 
@@ -34,10 +34,16 @@ private pokemonTypes= 'https://pokeapi.co/api/v2/type/';
       catchError(this.errorHandler));
   }
 
+  getEvolutionChain(url){
+    return this.http.get<any>(url);
+  }
+
   errorHandler(error : HttpErrorResponse){
     console.log(error.message);
     return observableThrowError(error.message || 'server error ');
   }
+
+ 
 
 
 

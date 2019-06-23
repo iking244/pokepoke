@@ -11,6 +11,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
 import { PokemonListByTypeComponent } from './pokemon-list-by-type/pokemon-list-by-type.component';
+import { EvolutionChainComponent } from './evolution-chain/evolution-chain.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PokemonListByTypeComponent } from './pokemon-list-by-type/pokemon-list-
     routingComponents,
     PageNotFoundComponent,
     LoadingSpinnerComponent,
-    PokemonListByTypeComponent
+    PokemonListByTypeComponent,
+    EvolutionChainComponent,
+    HeaderComponent
   
     
   ],

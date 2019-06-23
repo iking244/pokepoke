@@ -19,15 +19,17 @@ subscription;
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
-    this.subscription =this.pokemonService.getPokemonInfo(this.pokemonName)
-    .subscribe(data => {
-      this.pokemonSprites = data.sprites;
-      this.pokemonDetails = data.types;
-      this.pokemonId = data;
-
-    });
+   
 
   }
+  ngOnChanges(){this.subscription =this.pokemonService.getPokemonInfo(this.pokemonName)
+  .subscribe(data => {
+    this.pokemonSprites = data.sprites;
+    this.pokemonDetails = data.types;
+    this.pokemonId = data;
+
+  });
+}
 
   ngOnDestroy(){
     this.subscription.unsubscribe();
