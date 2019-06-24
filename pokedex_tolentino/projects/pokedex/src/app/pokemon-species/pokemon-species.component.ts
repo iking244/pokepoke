@@ -26,10 +26,10 @@ export class PokemonSpeciesComponent implements OnInit {
   ngOnInit() {
 
     this.subscription = this.route.params.pipe(
-      switchMap((params)=>{
+      switchMap((params)=> {
         this.pokemonName = params.name;
         return this.pokemonService.getPokemonInfo(this.pokemonName).pipe(
-          switchMap((data :PokemonDetails)=>{
+          switchMap((data : PokemonDetails)=>{
             this.pokemonSprite = data.sprites;
             this.pokemonInfo = data;
             this.pokemonDetails = data.types;

@@ -61,9 +61,9 @@
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
-  -webkit-box-shadow: 1px 2px 20px 8px rgba(186,184,186,1);
-  -moz-box-shadow: 1px 2px 20px 8px rgba(186,184,186,1);
-  box-shadow: 1px 2px 20px 8px rgba(181,182,183,1);
+  -webkit-box-shadow: 1px 2px 20px 8px rgba(232,174,0,1);
+  -moz-box-shadow: 1px 2px 20px 8px rgba(232,174,0,1);
+  box-shadow: 1px 2px 20px 8px rgba(232,174,0,1);;
   display:inline-block;
   position:relative;
   margin: 0 25px;
@@ -101,3 +101,20 @@
 button{
 padding: 15px;
 }
+
+h2{
+  font-size:120%;
+}
+
+
+@media only screen and (min-width: 600px){
+ 
+  .container{
+    width:15%;
+    height:150px;
+    margin: 5px 10px;
+    margin-top:10px;
+  }
+
+}
+

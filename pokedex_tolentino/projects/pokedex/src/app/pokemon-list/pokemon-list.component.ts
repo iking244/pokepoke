@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PokemonService } from '../pokemon.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PokemonDetails } from '../_models/pokemon';
-import { switchMap } from 'rxjs/operators';
+import { PokemonDetails, Pokemon } from '../_models/pokemon';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pokemon-list',
