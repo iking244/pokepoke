@@ -13,6 +13,8 @@ import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.co
 import { PokemonListByTypeComponent } from './pokemon-list-by-type/pokemon-list-by-type.component';
 import { EvolutionChainComponent } from './evolution-chain/evolution-chain.component';
 import { HeaderComponent } from './header/header.component';
+import { ItemListComponent } from './item-list/item-list.component';
+import { ItemSpriteComponent } from './item-sprite/item-sprite.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HeaderComponent } from './header/header.component';
     LoadingSpinnerComponent,
     PokemonListByTypeComponent,
     EvolutionChainComponent,
-    HeaderComponent
+    HeaderComponent,
+    ItemListComponent,
+    ItemSpriteComponent
   
     
   ],

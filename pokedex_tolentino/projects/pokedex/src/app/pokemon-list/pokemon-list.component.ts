@@ -10,7 +10,6 @@ import { switchMap, map } from 'rxjs/operators';
   styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent implements OnInit {
-  
   pokemons = {};
   pokemonId: PokemonDetails;
   subscription;

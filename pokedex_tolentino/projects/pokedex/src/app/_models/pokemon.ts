@@ -15,6 +15,7 @@ front_shiny_female: string;
 }
 
 export interface PokemonDetails {
+  species: any;
 sprites: SpriteUrls;
 types: PokemonTypes[];
 abilities: AbilityInfo[];

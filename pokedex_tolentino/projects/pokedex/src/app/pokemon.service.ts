@@ -5,6 +5,7 @@ import {  PokemonLink, PokemonDetails } from './_models/pokemon';
 import { catchError, map } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
+import { Items, ItemDetails } from './_models/items';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,8 @@ private url = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=964';
 private pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
 private pokemonSpeciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
 private pokemonTypes= 'https://pokeapi.co/api/v2/type/';
+private itemsUrl = "https://pokeapi.co/api/v2/item?offset=0&limit=964";
+
   constructor(private http: HttpClient, private router: Router) { }
 
   getPokemon(): Observable<PokemonLink[]> {
@@ -38,8 +41,17 @@ private pokemonTypes= 'https://pokeapi.co/api/v2/type/';
     return this.http.get<any>(url);
   }
 
+  getPokeItems():Observable<Items>{
+    return this.http.get<any>(this.itemsUrl).pipe(
+      catchError(this.errorHandler));
+  }
+
+  getItemDescription(url){
+    return this.http.get<ItemDetails>(url).pipe(
+      catchError(this.errorHandler));
+  }
+
   errorHandler(error : HttpErrorResponse){
-    console.log(error.message);
     return observableThrowError(error.message || 'server error ');
   }
 
