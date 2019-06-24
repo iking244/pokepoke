@@ -86,7 +86,7 @@ export interface Chain {
     species: Species3;
 }
 
-export interface RootObject {
+export class Chain {
     baby_trigger_item?: any;
     chain: Chain;
     id: number;

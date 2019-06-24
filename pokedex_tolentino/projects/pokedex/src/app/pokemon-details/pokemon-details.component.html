@@ -1,10 +1,10 @@
 <app-loading-spinner *ngIf="!pokemonSprites"></app-loading-spinner>
-<div *ngIf='pokemonSprites'>
-<div *ngIf= "pokemonSprites.front_default; else elseBlock">
+<ng-container *ngIf='pokemonSprites'>
+<ng-container *ngIf= "pokemonSprites.front_default; else elseBlock">
   <img [src]='pokemonSprites.front_default'/>
-</div>
+</ng-container>
 <ng-template #elseBlock>
     <img class='default' 
     src="assets/img/Pokeball.png"/>
 </ng-template>
-</div>
+</ng-container>

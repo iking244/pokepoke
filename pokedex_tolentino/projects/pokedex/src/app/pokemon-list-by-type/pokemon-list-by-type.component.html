@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class='list-container'>
+
 <ng-container *ngIf =" pokemons ; else elseBlock">
 <span class='container' *ngFor='let p of pokemons.pokemon | paginate: {itemsPerPage:page, currentPage:p}'
 (click)=onSelect(p.pokemon.name) title = '{{p.pokemon.name | titlecase }} details'>
@@ -8,7 +8,7 @@
  
   
 </ng-container>
-</div>
+
 <div class="footer">
     <button (click)='loadMore()'>Load more Pokemon</button>
   </div>

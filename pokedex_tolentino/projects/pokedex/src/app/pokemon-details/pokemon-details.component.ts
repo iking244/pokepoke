@@ -13,7 +13,6 @@ export class PokemonSpritesComponent implements OnInit {
 @Input() pokemonName: string;
 
 pokemonSprites: SpriteUrls;
-pokemonDetails: PokemonTypes[];
 pokemonId: PokemonDetails;
 subscription;
   constructor(private pokemonService: PokemonService) { }
@@ -22,10 +21,11 @@ subscription;
    
 
   }
-  ngOnChanges(){this.subscription =this.pokemonService.getPokemonInfo(this.pokemonName)
+  ngOnChanges(){
+  this.subscription =this.pokemonService.getPokemonInfo(this.pokemonName)
   .subscribe(data => {
+  
     this.pokemonSprites = data.sprites;
-    this.pokemonDetails = data.types;
     this.pokemonId = data;
 
   });

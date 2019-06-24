@@ -33,7 +33,7 @@ export class PokemonSpeciesComponent implements OnInit {
             this.pokemonSprite = data.sprites;
             this.pokemonInfo = data;
             this.pokemonDetails = data.types;
-            return this.pokemonService.getPokemonDesc(this.pokemonName);
+            return this.pokemonService.getPokemonDesc(data.species.name);
           })
         )
       })

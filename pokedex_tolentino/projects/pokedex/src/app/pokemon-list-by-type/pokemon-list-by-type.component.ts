@@ -13,7 +13,7 @@ pokemons = {};
 pokemonType;
 errorMsg;
 subscription;
-page=45;
+page=48;
   constructor(private pokemonService: PokemonService,private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit() {
@@ -27,10 +27,10 @@ page=45;
    
      
 loadMore(){
-  this.page += 45;
+  this.page += 48;
 }
   onSelect(name) {
-    this.router.navigate(['/list', name]);
+    this.router.navigate(['/pokemon-list', name]);
   }
 
 }

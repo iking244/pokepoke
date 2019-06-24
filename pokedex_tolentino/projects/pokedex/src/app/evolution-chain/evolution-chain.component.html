@@ -1,11 +1,22 @@
-{{evolution_data.species.name}}
+<ng-container *ngIf='evolution_data'>
+ <div class='container'>
+   <p><b>EVOLUTION CHART:</b></p>
+  <div class='innerContainer'>
+<p>{{evolution_data.species.name | titlecase}}</p>
 <app-pokemon-details (click)='onSelect(evolution_data.species.name)' [pokemonName]='evolution_data.species.name'></app-pokemon-details>
-
+  
+</div>
 <ng-container *ngFor='let FirstEvolve of evolution_data.evolves_to'>
-  {{FirstEvolve.species.name}}
+  <div class='innerContainer'>
+  <p>{{FirstEvolve.species.name | titlecase}}</p>
   <app-pokemon-details (click)='onSelect(FirstEvolve.species.name)' [pokemonName]='FirstEvolve.species.name'></app-pokemon-details>
+</div>
 <ng-container *ngFor='let SecondEvolve of FirstEvolve.evolves_to'>
-  {{SecondEvolve.species.name}}
+  <div class='innerContainer'>
+  <p>{{SecondEvolve.species.name | titlecase}}</p>
   <app-pokemon-details (click)='onSelect(SecondEvolve.species.name)' [pokemonName]='SecondEvolve.species.name'></app-pokemon-details>
+  </div>
 </ng-container>
+</ng-container>
+</div>
 </ng-container>
